@@ -8,6 +8,9 @@ async function routes(app) {
         try {
             const response = await fetch('http://zombsroyale.io/api/shop/available');
             const data = await response.json();
+            for (let i = 0; i < data.items.length; i++) {
+                data.items[i].is_stock = true;
+            }
             return data;
         } catch (error) {
             return {
