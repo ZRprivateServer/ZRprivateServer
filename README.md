@@ -8,7 +8,7 @@ The ZRPS is still early in development. A full list of features is coming soon.
 
 ## Get Started
 
-Check out the [wiki](https://github.com/JamzOhJamz/ZRprivateServer/wiki) to find everything you need to know!
+Check out the [wiki](https://github.com/ZRprivateServer/ZRprivateServer/wiki) to find everything you need to know!
 
 ## Support
 
@@ -28,4 +28,4 @@ This is an open-source project developed for educational and entertainment purpo
 
 ## License
 
-ZRprivateServer is released under the MIT license. See [LICENSE](https://github.com/JamzOhJamz/ZRprivateServer/blob/main/LICENSE) for more details.
+ZRprivateServer is released under the MIT license. See [LICENSE](https://github.com/ZRprivateServer/ZRprivateServer/blob/main/LICENSE) for more details.
