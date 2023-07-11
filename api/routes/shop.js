@@ -11,6 +11,9 @@ async function routes(app) {
             for (let i = 0; i < data.items.length; i++) {
                 data.items[i].is_stock = true;
             }
+            for (let i = 0; i < data.packs.length; i++) {
+                data.packs[i].can_purchase = true;
+            }
             return data;
         } catch (error) {
             return {
