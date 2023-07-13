@@ -278,7 +278,7 @@ async function routes(app) {
         let tag = null;
         if (user.friend_code != null) {
             try {
-                tag = parseInt(user.friend_code.split('#')[1]);
+                tag = user.friend_code.split('#')[1];
             } catch (_) { }
         }
         if (tag === null) tag = Math.floor(Math.random() * 9000) + 1000;
