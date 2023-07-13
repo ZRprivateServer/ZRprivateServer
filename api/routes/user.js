@@ -283,13 +283,19 @@ async function routes(app) {
         }
         if (tag === null) tag = Math.floor(Math.random() * 9000) + 1000;
         const friendCode = `${name}#${tag}`;
+        if (friendCode === user.friend_code) {
+            return {
+                status: 'error',
+                message: 'Someone is already using that name with the same code as you. Please try again.'
+            };
+        }
         try {
             await db.execute('UPDATE users SET friend_code = ? WHERE id = ?', [friendCode, user.id]);
         } catch (e) {
             if (e.code === 'ER_DUP_ENTRY') {
                 return {
                     status: 'error',
-                    message: 'That name is already taken. Please try again.'
+                    message: 'Someone is already using that name with the same code as you. Please try again.'
                 };
             }
         }
