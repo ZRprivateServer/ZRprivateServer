@@ -370,6 +370,7 @@ io.on('connection', (socket) => {
             'WHERE id = (SELECT user_id FROM sessions WHERE `key` = ?)',
             [userKey]
         );
+        if (players[socket.id] === null || players[socket.id] === undefined) return;
         // @ts-ignore
         if (rows.length === 0) {
             players[socket.id].loginState = 0;
