@@ -273,10 +273,16 @@ async function routes(app) {
                 message: 'You need to enter a valid name. No special characters!'
             };
         }
-        const name = req.body.name.substring(0, 42);
-        const tag = Math.floor(Math.random() * 9000) + 1000;
-        const friendCode = `${name}#${tag}`;
         const user = rows[0];
+        const name = req.body.name.substring(0, 42);
+        let tag = null;
+        if (user.friend_code != null) {
+            try {
+                tag = parseInt(user.friend_code.split('#')[1]);
+            } catch (_) { }
+        }
+        if (tag === null) tag = Math.floor(Math.random() * 9000) + 1000;
+        const friendCode = `${name}#${tag}`;
         try {
             await db.execute('UPDATE users SET friend_code = ? WHERE id = ?', [friendCode, user.id]);
         } catch (e) {
