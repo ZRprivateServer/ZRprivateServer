@@ -277,9 +277,8 @@ async function routes(app) {
         const name = req.body.name.substring(0, 42);
         let tag = null;
         if (user.friend_code != null) {
-            try {
-                tag = user.friend_code.split('#')[1];
-            } catch (_) { }
+            const oldNumbers = user.friend_code.split('#')[1];
+            if (oldNumbers !== '') tag = user.friend_code.split('#')[1];
         }
         if (tag === null) tag = Math.floor(Math.random() * 9000) + 1000;
         const friendCode = `${name}#${tag}`;
