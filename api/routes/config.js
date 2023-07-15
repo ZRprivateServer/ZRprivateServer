@@ -24,7 +24,7 @@ async function routes(app) {
             },
             extras: {
                 season_preview: {
-                    season: 40,
+                    season: 42,
                     current_day: 0,
                     timer_ends: '1970-01-01 00:00:00'
                 }
