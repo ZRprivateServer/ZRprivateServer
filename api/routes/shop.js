@@ -10,10 +10,10 @@ async function routes(app) {
             const response = await fetch('http://zombsroyale.io/api/shop/available?' + new URLSearchParams(req.query).toString());
             const data = await response.json();
             delete data.itemsSignature;
-            for (let i = 0; i < data.items.length; i++) {
+            for (let i = 0; i < data.items?.length; i++) {
                 data.items[i].is_stock = true;
             }
-            for (let i = 0; i < data.packs.length; i++) {
+            for (let i = 0; i < data.packs?.length; i++) {
                 data.packs[i].can_purchase = true;
             }
             return data;
