@@ -14,6 +14,8 @@ async function routes(app) {
                 data.items[i].is_stock = true;
             }
             for (let i = 0; i < data.packs?.length; i++) {
+                data.packs[i].cost_coins = 0;
+                data.packs[i].cost_gems = 0;
                 data.packs[i].can_purchase = true;
             }
             return data;
